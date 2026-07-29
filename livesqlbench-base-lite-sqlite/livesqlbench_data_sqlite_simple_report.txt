@@ -1,0 +1,52 @@
+--------------------------------------------------
+BIRD CRITIC Stack Overflow Result Statistics (Postgres, Multi-Thread):
+Number of Instances: 10
+Number of Execution Errors: 0
+Number of Timeouts: 0
+Number of Assertion Errors: 0
+Total Errors: 0
+Overall Accuracy: 100.00%
+Timestamp: 2026-07-27 18:34:42.432616
+
+Question_alien_1: (1/0) test cases passed, failed test cases: None
+Question_alien_10: (1/0) test cases passed, failed test cases: None
+Question_alien_2: (1/0) test cases passed, failed test cases: None
+Question_alien_3: (1/0) test cases passed, failed test cases: None
+Question_alien_4: (1/0) test cases passed, failed test cases: None
+Question_alien_5: (1/0) test cases passed, failed test cases: None
+Question_alien_6: (1/0) test cases passed, failed test cases: None
+Question_alien_7: (1/0) test cases passed, failed test cases: None
+Question_alien_8: (1/0) test cases passed, failed test cases: None
+Question_alien_9: (1/0) test cases passed, failed test cases: None
+
+==================================================
+EXECUTION STATISTICS:
+==================================================
+Total Executable Instances (no syntax/execution errors): 10
+Executable Instances with Assertion Errors: 0
+Executable Instances Successfully Passed: 10
+
+Executable Instance IDs:
+  1. alien_1 (Success)
+  2. alien_10 (Success)
+  3. alien_2 (Success)
+  4. alien_3 (Success)
+  5. alien_4 (Success)
+  6. alien_5 (Success)
+  7. alien_6 (Success)
+  8. alien_7 (Success)
+  9. alien_8 (Success)
+  10. alien_9 (Success)
+
+Executable Instances Successfully Passed:
+  1. alien_1
+  2. alien_10
+  3. alien_2
+  4. alien_3
+  5. alien_4
+  6. alien_5
+  7. alien_6
+  8. alien_7
+  9. alien_8
+  10. alien_9
+

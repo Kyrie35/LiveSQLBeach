@@ -1,0 +1,19 @@
+# Large-v1 dumps are often from newer pg_dump; use 18+ for clean restores (see LiveSQLBench-CLI build_db_images.sh).
+ARG POSTGRES_BASE_IMAGE=postgres:18
+FROM ${POSTGRES_BASE_IMAGE}
+
+# Set up environment variables for user and password only
+ENV POSTGRES_USER=root
+ENV POSTGRES_PASSWORD=123123
+
+# Copy the initialization script to the entrypoint directory
+COPY ./env/init-databases_postgresql_large_v1.sh /docker-entrypoint-initdb.d/init-databases_postgresql.sh
+
+# Copy the table dumps for database initialization
+COPY ./postgre_table_dumps_large_v1 /docker-entrypoint-initdb.d/postgre_table_dumps
+
+# Set permissions for the initialization script
+RUN chmod +x /docker-entrypoint-initdb.d/init-databases_postgresql.sh
+
+# Set permissions for the table dumps directory and files
+RUN chmod -R 755 /docker-entrypoint-initdb.d/postgre_table_dumps

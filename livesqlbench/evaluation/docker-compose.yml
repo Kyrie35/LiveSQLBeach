@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  postgresql:
+    image: docker.io/shawnxxh/bird-interact-postgresql:latest
+    container_name: livesqlbench_postgresql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123123
+      TZ: "Asia/Hong_Kong"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  postgresql_base_full:
+    image: docker.io/shawnxxh/bird-interact-postgresql-full:latest
+    container_name: livesqlbench_postgresql_base_full
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123123
+      TZ: "Asia/Hong_Kong"
+    volumes:
+      - postgresql_base_full_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  so_eval_env:
+    image: docker.io/shawnxxh/livesqlbench-so-eval:latest
+    container_name: livesqlbench_so_eval_env
+    volumes:
+      - ./:/app/
+    depends_on:
+      - postgresql
+      - postgresql_base_full
+    command: ["tail", "-f", "/dev/null"]
+
+volumes:
+  postgresql_data:
+  postgresql_base_full_data:
