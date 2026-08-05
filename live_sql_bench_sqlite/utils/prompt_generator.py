@@ -4,8 +4,7 @@ import argparse
 import logging
 from tqdm import tqdm
 
-# from prompt.baseline import assistant_prompt
-from live_sql_bench_sqlite.prompt.baseline import assistant_prompt
+from prompt.baseline import assistant_prompt
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
