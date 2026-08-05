@@ -4,6 +4,8 @@ import argparse
 import logging
 from tqdm import tqdm
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from prompt.baseline import assistant_prompt
 
 # Set up logging
