@@ -1,0 +1,128 @@
+2026-08-06 15:36:16,766 - INFO - === Starting Simple SQLite Evaluation Wrapper ===
+2026-08-06 15:36:16,766 - INFO - Processing 1 instances
+2026-08-06 15:36:16,766 - INFO - Batch size: 10
+2026-08-06 15:36:16,766 - INFO - Databases: ['alien']
+2026-08-06 15:36:16,766 - INFO - Looking for template: ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite
+2026-08-06 15:36:16,766 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 15:36:16,769 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 15:36:16,769 - INFO - For base_db=alien, ephemeral db list = ['../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite']
+2026-08-06 15:36:16,855 - INFO - Processing batch 1/1
+2026-08-06 15:36:16,857 - INFO - Starting instance alien_1 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 15:36:16,890 - ERROR - Instance alien_1 failed with code 2
+2026-08-06 15:36:16,890 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 15:36:16,890 - ERROR - Instance alien_1 failed completely
+2026-08-06 15:36:17,001 - INFO - === Cleaning up ephemeral databases ===
+2026-08-06 15:36:17,001 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 16:43:52,217 - INFO - === Starting Simple SQLite Evaluation Wrapper ===
+2026-08-06 16:43:52,217 - INFO - Processing 2 instances
+2026-08-06 16:43:52,217 - INFO - Batch size: 10
+2026-08-06 16:43:52,217 - INFO - Databases: ['alien']
+2026-08-06 16:43:52,217 - INFO - Looking for template: ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite
+2026-08-06 16:43:52,218 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 16:43:52,221 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 16:43:52,221 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 16:43:52,223 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 16:43:52,223 - INFO - For base_db=alien, ephemeral db list = ['../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite']
+2026-08-06 16:43:52,245 - INFO - Starting instance alien_1 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 16:43:52,272 - ERROR - Instance alien_1 failed with code 2
+2026-08-06 16:43:52,272 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 16:43:52,273 - ERROR - Instance alien_1 failed completely
+2026-08-06 16:43:52,380 - INFO - Starting instance alien_2 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 16:43:52,411 - ERROR - Instance alien_2 failed with code 2
+2026-08-06 16:43:52,411 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 16:43:52,411 - ERROR - Instance alien_2 failed completely
+2026-08-06 16:43:52,517 - INFO - Completed batch 1/1
+2026-08-06 16:43:52,526 - INFO - === Cleaning up ephemeral databases ===
+2026-08-06 16:43:52,526 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 16:43:52,526 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 17:31:07,912 - INFO - === Starting Simple SQLite Evaluation Wrapper ===
+2026-08-06 17:31:07,912 - INFO - Processing 3 instances
+2026-08-06 17:31:07,912 - INFO - Batch size: 10
+2026-08-06 17:31:07,912 - INFO - Databases: ['alien']
+2026-08-06 17:31:07,912 - INFO - Looking for template: ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite
+2026-08-06 17:31:07,912 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 17:31:07,915 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 17:31:07,915 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 17:31:07,916 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 17:31:07,916 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 17:31:07,918 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-06 17:31:07,918 - INFO - For base_db=alien, ephemeral db list = ['../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite']
+2026-08-06 17:31:08,031 - INFO - Starting instance alien_1 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 17:31:08,060 - ERROR - Instance alien_1 failed with code 2
+2026-08-06 17:31:08,060 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 17:31:08,060 - ERROR - Instance alien_1 failed completely
+2026-08-06 17:31:08,167 - INFO - Starting instance alien_2 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 17:31:08,195 - ERROR - Instance alien_2 failed with code 2
+2026-08-06 17:31:08,195 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 17:31:08,196 - ERROR - Instance alien_2 failed completely
+2026-08-06 17:31:08,303 - INFO - Starting instance alien_3 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-06 17:31:08,337 - ERROR - Instance alien_3 failed with code 2
+2026-08-06 17:31:08,337 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 17:31:08,337 - ERROR - Instance alien_3 failed completely
+2026-08-06 17:31:08,444 - INFO - Completed batch 1/1
+2026-08-06 17:31:08,452 - INFO - === Cleaning up ephemeral databases ===
+2026-08-06 17:31:08,452 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 17:31:08,452 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 17:31:08,452 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-06 18:03:21,230 - INFO - === Starting Simple SQLite Evaluation Wrapper ===
+2026-08-06 18:03:21,230 - INFO - Processing 7 instances
+2026-08-06 18:03:21,230 - INFO - Batch size: 10
+2026-08-06 18:03:21,230 - INFO - Databases: ['alien']
+2026-08-06 18:03:21,230 - INFO - Looking for template: ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite
+2026-08-06 18:03:21,230 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,233 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 18:03:21,233 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,235 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 18:03:21,235 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,237 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-06 18:03:21,237 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,238 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-06 18:03:21,238 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_5.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,239 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_5.sqlite
+2026-08-06 18:03:21,239 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_6.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,240 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_6.sqlite
+2026-08-06 18:03:21,241 - INFO - Creating ephemeral db ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_7.sqlite from ../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-06 18:03:21,241 - INFO - Successfully created ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_7.sqlite
+2026-08-06 18:03:21,241 - INFO - For base_db=alien, ephemeral db list = ['../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_5.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_6.sqlite', '../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_7.sqlite']
+2026-08-06 18:03:21,270 - INFO - Starting instance alien_3 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 18:03:21,298 - ERROR - Instance alien_3 failed with code 2
+2026-08-06 18:03:21,298 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 18:03:21,298 - ERROR - Instance alien_3 failed completely
+2026-08-06 18:03:21,405 - INFO - Starting instance alien_4 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 18:03:21,435 - ERROR - Instance alien_4 failed with code 2
+2026-08-06 18:03:21,435 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 18:03:21,435 - ERROR - Instance alien_4 failed completely
+2026-08-06 18:03:21,540 - INFO - Starting instance alien_5 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-06 18:03:21,572 - ERROR - Instance alien_5 failed with code 2
+2026-08-06 18:03:21,572 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 18:03:21,572 - ERROR - Instance alien_5 failed completely
+2026-08-06 18:03:21,675 - INFO - Starting instance alien_6 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-06 18:03:21,709 - ERROR - Instance alien_6 failed with code 2
+2026-08-06 18:03:21,710 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 18:03:21,710 - ERROR - Instance alien_6 failed completely
+2026-08-06 18:03:21,815 - INFO - Starting instance alien_7 with DB: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_5.sqlite
+2026-08-06 18:03:21,853 - ERROR - Instance alien_7 failed with code 2
+2026-08-06 18:03:21,853 - ERROR - STDERR: /Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/tongchong/Documents/LiveSQLBeach/mini_dev/livesql_agent_infini/./single_instance_eval_sqlite.py': [Errno 2] No such file or directory
+...
+2026-08-06 18:03:21,853 - ERROR - Instance alien_7 failed completely
+2026-08-06 18:03:21,953 - ERROR - No ephemeral database available for unknown
+2026-08-06 18:03:21,953 - ERROR - No ephemeral database available for unknown
+2026-08-06 18:03:21,955 - INFO - Completed batch 1/1
+2026-08-06 18:03:21,962 - INFO - === Cleaning up ephemeral databases ===
+2026-08-06 18:03:21,962 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-06 18:03:21,963 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-06 18:03:21,963 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-06 18:03:21,963 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-06 18:03:21,963 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_5.sqlite
+2026-08-06 18:03:21,963 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_6.sqlite
+2026-08-06 18:03:21,963 - INFO - Dropping ephemeral db: ../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_7.sqlite

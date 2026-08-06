@@ -307,6 +307,14 @@ def main():
 
     overall_accuracy = (passed_instances / total_instances * 100) if total_instances > 0 else 0.0
 
+    passed_ids = [r["instance_id"] for r in all_results if r.get("status") == "success"]
+    failed_ids = [r["instance_id"] for r in all_results if r.get("status") != "success"]
+    failed_details = {
+        r["instance_id"]: r.get("error_message") or "unknown error"
+        for r in all_results
+        if r.get("status") != "success"
+    }
+
     # Print summary
     print(f"\n" + "="*60)
     print("EVALUATION SUMMARY")
@@ -318,6 +326,25 @@ def main():
     print(f"Timeout errors: {timeout_errors}")
     print(f"Assertion errors: {assertion_errors}")
     print(f"Overall accuracy: {overall_accuracy:.2f}%")
+    print("="*60)
+
+    print("\nPASSED instance_ids:")
+    if passed_ids:
+        for instance_id in passed_ids:
+            print(f"  ✓ {instance_id}")
+    else:
+        print("  (none)")
+
+    print("\nFAILED instance_ids:")
+    if failed_ids:
+        for instance_id in failed_ids:
+            detail = failed_details.get(instance_id, "")
+            if detail:
+                print(f"  ✗ {instance_id}  ({detail})")
+            else:
+                print(f"  ✗ {instance_id}")
+    else:
+        print("  (none)")
     print("="*60)
 
     # Save results

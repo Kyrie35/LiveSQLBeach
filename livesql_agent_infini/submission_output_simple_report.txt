@@ -1,0 +1,25 @@
+--------------------------------------------------
+BIRD CRITIC Stack Overflow Result Statistics (Postgres, Multi-Thread):
+Number of Instances: 7
+Number of Execution Errors: 7
+Number of Timeouts: 0
+Number of Assertion Errors: 0
+Total Errors: 7
+Overall Accuracy: 0.00%
+Timestamp: 2026-08-06 18:03:21.958620
+
+Question_alien_1: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_2: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_3: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_4: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_5: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_6: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_7: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+
+==================================================
+EXECUTION STATISTICS:
+==================================================
+Total Executable Instances (no syntax/execution errors): 0
+Executable Instances with Assertion Errors: 0
+Executable Instances Successfully Passed: 0
+

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "livesql-agent-infini"
+version = "0.1.0"
+description = "LiveSQLBench Base-Lite-SQLite integration with InfiniSynapse."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["livesql_agent_infini*"]
