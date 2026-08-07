@@ -1,0 +1,1 @@
+SELECT posval AS position, COUNT(*) AS recommendations, COUNT(*) FILTER(WHERE i.evttype = 'click') AS clicks, CAST(COUNT(*) FILTER(WHERE i.evttype = 'click') AS REAL) / NULLIF(COUNT(*), 0) AS ctr FROM recommendations AS r LEFT JOIN interactions AS i ON r.reckey = i.reclink GROUP BY posval ORDER BY posval NULLS LAST;

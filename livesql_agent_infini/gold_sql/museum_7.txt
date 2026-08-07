@@ -1,0 +1,1 @@
+SELECT DISTINCT s.showcasereg FROM showcases s LEFT JOIN environmentalreadingscore er ON s.showcasereg = er.showcaseref WHERE (10 - ((er.tempvar24h + er.humvar24h / 5.0 + s.leakrate) / 3.0)) < 4 OR s.sealcondition = 'Poor' OR s.maintstatus = 'Overdue' OR s.filterstatus = 'Replace Now' OR s.silicagelstatus = 'Replace Now';

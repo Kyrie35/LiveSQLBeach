@@ -1,0 +1,1 @@
+SELECT o.opsregistry, h.storecapm3, h.storeavailm3, ROUND(( h.storeavailm3 / h.storecapm3 ) * 100, 2) AS available_storage_percent, o.supplyflowstate FROM operations AS o JOIN distributionhubs AS h ON o.opshubref = h.hubregistry WHERE ( h.storeavailm3 / h.storecapm3 ) < 0.1 AND o.supplyflowstate IN ('Strained', 'Disrupted') ORDER BY available_storage_percent NULLS LAST;

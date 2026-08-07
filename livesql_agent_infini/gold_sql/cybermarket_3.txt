@@ -1,0 +1,1 @@
+SELECT mktregistry, mktdenom, ROUND( ( CAST(dlyflow AS REAL) / 1000 ) + ( esccomprate * 0.2 ) + ( interscore * 0.3 ) + ( vendcount * 0.1 ) - ( CAST(mktspan AS REAL) / 100 ), 2 ) AS market_risk_score FROM markets ORDER BY market_risk_score DESC NULLS FIRST;

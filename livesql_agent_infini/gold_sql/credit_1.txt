@@ -1,0 +1,1 @@
+SELECT expemplref AS customer_id, totassets, totliabs, totassets - totliabs AS computed_networth, RANK() OVER (ORDER BY ( totassets - totliabs ) DESC NULLS FIRST) AS networth_rank FROM expenses_and_assets ORDER BY computed_networth DESC NULLS FIRST LIMIT 10;

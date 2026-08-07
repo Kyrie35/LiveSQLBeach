@@ -1,0 +1,1 @@
+WITH position AS ( SELECT riskandmarginpivot, json_extract(risk_margin_profile, '$.position.possum') AS possum FROM riskandmargin ORDER BY riskandmarginpivot DESC LIMIT 5 ), vol AS ( SELECT volmeter FROM marketstats ORDER BY marketstatsmark DESC LIMIT 1 ) SELECT p.riskandmarginpivot, p.possum, vol.volmeter, (p.possum * vol.volmeter * 0.01) AS PVaR FROM position p CROSS JOIN vol;

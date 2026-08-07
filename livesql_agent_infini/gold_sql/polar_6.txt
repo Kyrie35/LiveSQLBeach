@@ -1,0 +1,1 @@
+SELECT opmaintregistry, operationhours, maintenancecyclehours, operationalstatus, CASE WHEN operationalstatus = 'Active' THEN 10 * (1 - operationhours/maintenancecyclehours) WHEN operationalstatus = 'Standby' THEN 5 * (1 - operationhours/maintenancecyclehours) ELSE 0 END AS ORS FROM operationmaintenance;

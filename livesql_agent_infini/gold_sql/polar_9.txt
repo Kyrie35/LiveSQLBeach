@@ -1,0 +1,1 @@
+SELECT equipmentcode, ((performanceindex + reliabilityindex)/2) * (1 - environmentalimpactindex/10) AS EER, safetyindex * (((performanceindex + reliabilityindex)/2) * (1 - environmentalimpactindex/10)) * 0.8 AS OSPI FROM equipment WHERE safetyindex * (((performanceindex + reliabilityindex)/2) * (1 - environmentalimpactindex/10)) * 0.8 > 0.75;

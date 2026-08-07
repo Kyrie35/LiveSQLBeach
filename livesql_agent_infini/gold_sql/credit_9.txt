@@ -1,0 +1,1 @@
+SELECT ei.emplcoreref AS clientref, ea.liqassets, ea.totassets, ( ea.liqassets / NULLIF(ea.totassets, 0) ) AS ALR, ei.mthincome, ea.investamt, CASE WHEN ( ea.liqassets / NULLIF(ea.totassets, 0) ) > 0.3 AND ei.mthincome > 5000 THEN 'Target' ELSE 'Standard' END AS target_status FROM employment_and_income AS ei INNER JOIN expenses_and_assets AS ea ON ei.emplcoreref = ea.expemplref;

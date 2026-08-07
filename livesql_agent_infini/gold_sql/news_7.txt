@@ -1,0 +1,1 @@
+SELECT strftime('%Y-%m', regmoment) AS registration_month, testgrp, COUNT(*) AS total_registrations, CAST(COUNT(*) AS REAL) * 100 / SUM(COUNT(*)) OVER (PARTITION BY strftime('%Y-%m', regmoment)) AS cohort_percentage FROM users GROUP BY registration_month, testgrp ORDER BY registration_month, testgrp;

@@ -1,0 +1,1 @@
+WITH user_interaction AS ( SELECT userel, seshclicks, seshviews, engscore FROM sessions ) SELECT userel, seshclicks, seshviews, engscore, ( seshclicks + seshviews ) * ( engscore / 100.0 ) AS euim FROM user_interaction ORDER BY euim DESC NULLS FIRST LIMIT 10;

@@ -1,0 +1,1 @@
+WITH latest_exec AS ( SELECT ordersmark, remaincount, ROW_NUMBER() OVER (PARTITION BY ordersmark ORDER BY orderexecmark DESC) AS rn FROM orderexecutions ) SELECT o.orderspivot, o.dealcount, le.remaincount, ((o.dealcount - le.remaincount) * 100.0 / o.dealcount) AS order_fill_rate FROM orders o JOIN latest_exec le ON o.recordvault = le.ordersmark WHERE le.rn = 1;

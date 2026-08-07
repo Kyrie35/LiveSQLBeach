@@ -1,0 +1,1 @@
+SELECT CAST(strftime('%Y', 'now') AS INTEGER) - CAST(strftime('%Y', pl.initdate) AS INTEGER) AS panel_age_years, AVG(pe.measpoww / p.powratew * 100) AS avg_ppr, COUNT(*) AS panel_count FROM panel p JOIN plant pl ON p.hubregistry = pl.growregistry JOIN performance pe ON p.panemark = pe.solmodref GROUP BY panel_age_years ORDER BY panel_age_years;

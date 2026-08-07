@@ -1,0 +1,1 @@
+SELECT c.commregistry, ( CASE c.vpnflag WHEN 'Yes' THEN 1 WHEN 'Suspected' THEN 0.5 ELSE 0 END * 30 ) + ( c.tornodecount * 2 ) + ( CASE c.encryptmethod WHEN 'Standard' THEN 1 WHEN 'Enhanced' THEN 2 WHEN 'Custom' THEN 3 ELSE 0 END * 15 ) + ( c.connpatscore * 0.2 ) + ( c.brwsrunique / 20 ) AS apl FROM communication AS c WHERE c.tornodecount > 20 ORDER BY apl DESC NULLS FIRST;

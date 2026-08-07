@@ -1,0 +1,1 @@
+SELECT bankexpref FROM bank_and_transactions WHERE ( chaninvdatablock ->> '$.onlineuse' = 'High' OR chaninvdatablock ->> '$.mobileuse' = 'High' ) AND chaninvdatablock ->> '$.autopay' = 'Yes';

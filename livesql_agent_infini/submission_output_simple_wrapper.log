@@ -634,3 +634,39 @@
 2026-08-07 14:22:41,153 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
 2026-08-07 14:22:41,153 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
 2026-08-07 14:22:41,153 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-07 15:01:21,766 - INFO - === Starting Simple SQLite Evaluation Wrapper ===
+2026-08-07 15:01:21,767 - INFO - Processing 8 instances
+2026-08-07 15:01:21,767 - INFO - Batch size: 10
+2026-08-07 15:01:21,767 - INFO - Databases: ['alien']
+2026-08-07 15:01:21,767 - INFO - Looking for template: ../../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite
+2026-08-07 15:01:21,767 - INFO - Creating ephemeral db ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite from ../../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-07 15:01:21,770 - INFO - Successfully created ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-07 15:01:21,770 - INFO - Creating ephemeral db ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite from ../../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-07 15:01:21,771 - INFO - Successfully created ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-07 15:01:21,771 - INFO - Creating ephemeral db ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite from ../../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-07 15:01:21,772 - INFO - Successfully created ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-07 15:01:21,772 - INFO - Creating ephemeral db ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite from ../../livesqlbench-base-lite-sqlite/alien/alien_template.sqlite...
+2026-08-07 15:01:21,773 - INFO - Successfully created ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-07 15:01:21,773 - INFO - For base_db=alien, ephemeral db list = ['../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite', '../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite', '../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite', '../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite']
+2026-08-07 15:01:21,815 - INFO - Starting instance alien_1 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-07 15:01:21,884 - INFO - Instance alien_1 completed successfully
+2026-08-07 15:01:21,987 - INFO - Starting instance alien_2 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-07 15:01:22,050 - INFO - Instance alien_2 completed successfully
+2026-08-07 15:01:22,157 - INFO - Starting instance alien_3 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-07 15:01:22,225 - INFO - Instance alien_3 completed successfully
+2026-08-07 15:01:22,333 - INFO - Starting instance alien_4 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-07 15:01:22,388 - INFO - Instance alien_4 completed successfully
+2026-08-07 15:01:22,492 - INFO - Starting instance alien_5 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-07 15:01:22,544 - INFO - Instance alien_5 completed successfully
+2026-08-07 15:01:22,651 - INFO - Starting instance alien_6 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-07 15:01:22,717 - INFO - Instance alien_6 completed successfully
+2026-08-07 15:01:22,825 - INFO - Starting instance alien_7 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-07 15:01:22,898 - INFO - Instance alien_7 completed successfully
+2026-08-07 15:01:23,005 - INFO - Starting instance alien_8 with DB: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite
+2026-08-07 15:01:23,060 - INFO - Instance alien_8 completed successfully
+2026-08-07 15:01:23,166 - INFO - Completed batch 1/1
+2026-08-07 15:01:23,179 - INFO - === Cleaning up ephemeral databases ===
+2026-08-07 15:01:23,179 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_1.sqlite
+2026-08-07 15:01:23,179 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_2.sqlite
+2026-08-07 15:01:23,179 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_3.sqlite
+2026-08-07 15:01:23,179 - INFO - Dropping ephemeral db: ../../livesqlbench-base-lite-sqlite/alien/alien_ephemeral_4.sqlite

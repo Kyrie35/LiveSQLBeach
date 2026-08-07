@@ -1,0 +1,1 @@
+SELECT cv.chassisregistry, (1 - ((cv.brakepadwearpercent + cv.trackwearpercent)/200.0)) * (cv.vehiclespeedkmh/50.0) * (ef.engineloadpercent/100.0) AS VPC FROM chassisandvehicle cv LEFT JOIN engineandfluids ef ON cv.chassisengref = ef.engineregistry;

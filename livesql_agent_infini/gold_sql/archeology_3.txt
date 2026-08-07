@@ -1,0 +1,1 @@
+SELECT se.zoneref AS site_code, si.zonelabel AS site_name, ROUND( AVG( 100.0 - 2.5 * ABS(se.ambictemp - 20.0) - POWER(ABS(( se.humepct - 50.0 ) / 2.0), 1.5) - 600.0 / ( se.illumelux + 100.0 ) ), 2 ) AS avg_esi FROM scanenvironment AS se JOIN sites AS si ON se.zoneref = si.zoneregistry GROUP BY se.zoneref, si.zonelabel;

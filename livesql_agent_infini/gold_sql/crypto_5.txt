@@ -1,0 +1,1 @@
+WITH pnl AS ( SELECT SUM(CASE WHEN realline > 0 THEN realline ELSE 0 END) AS sum_positive, SUM(CASE WHEN realline < 0 THEN realline ELSE 0 END) AS sum_negative FROM accountbalances ) SELECT sum_positive, sum_negative, CASE WHEN sum_negative = 0 THEN NULL ELSE sum_positive / ABS(sum_negative) END AS profit_factor FROM pnl;

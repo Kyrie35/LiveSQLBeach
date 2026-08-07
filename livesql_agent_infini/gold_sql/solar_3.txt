@@ -1,0 +1,1 @@
+SELECT p.panetype, AVG(p.powratew * p.tempcoef * ( env.celltempc - 25 )) AS avg_tpci FROM panel AS p JOIN environment AS env ON p.hubregistry = env.arearegistry GROUP BY p.panetype;

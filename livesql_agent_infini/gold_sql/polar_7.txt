@@ -1,0 +1,1 @@
+SELECT pwrbatteqref, energyefficiencypercent, powersource, CASE WHEN powersource IN ('Solar', 'Wind') THEN energyefficiencypercent * 1.5 WHEN powersource = 'Hybrid' THEN energyefficiencypercent * 1.2 WHEN powersource = 'Battery' THEN energyefficiencypercent * 1.0 WHEN powersource = 'Diesel' THEN energyefficiencypercent * 0.7 ELSE 0 END AS ESI FROM powerbattery;

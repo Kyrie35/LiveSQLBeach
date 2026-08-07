@@ -1,0 +1,1 @@
+SELECT cr.clientref, ea.totassets - ea.totliabs AS net_worth, 1 AS FSI FROM core_record AS cr INNER JOIN employment_and_income AS ei ON cr.coreregistry = ei.emplcoreref INNER JOIN expenses_and_assets AS ea ON ei.emplcoreref = ea.expemplref;

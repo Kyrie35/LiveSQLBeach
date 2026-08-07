@@ -1,0 +1,1 @@
+SELECT invertregistry AS inverter_id, pwrqualidx, CAST(( power_metrics ->> '$.harmdistpct' ) AS REAL) AS harmonic_distortion, CAST(( power_metrics ->> '$.invertpowfac' ) AS REAL) AS inverter_power_factor, pwrqualidx * ( 1 - ( CAST(( power_metrics ->> '$.harmdistpct' ) AS REAL) / 100 ) ) * ( CAST(( power_metrics ->> '$.invertpowfac' ) AS REAL) ) AS GIQ FROM inverter;

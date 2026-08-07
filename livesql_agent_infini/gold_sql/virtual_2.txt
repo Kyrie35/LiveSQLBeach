@@ -1,0 +1,1 @@
+SELECT f.userregistry, f.nicklabel, (COALESCE(ms.spendusd, 0) + COALESCE(i.giftvalusd, 0)) AS total_support_usd FROM fans f LEFT JOIN membershipandspending ms ON ms.memberfanpivot = f.userregistry LEFT JOIN interactions i ON i.interactfanpivot = f.userregistry WHERE COALESCE(i.giftvalusd, 0) + COALESCE(ms.spendusd, 0) > 0 ORDER BY total_support_usd DESC;

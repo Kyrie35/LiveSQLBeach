@@ -1,0 +1,1 @@
+SELECT si.zoneregistry AS site_code, si.zonelabel AS site_name, sc.structstate AS structural_state, si.presstat AS preservation_status, CASE WHEN si.presstat IN ('Poor', 'Critical') AND sc.structstate <> 'Stable' THEN 'Degradation Risk Zone' ELSE 'Not in Risk Zone' END AS risk_zone FROM sites AS si LEFT JOIN scanconservation AS sc ON si.zoneregistry = sc.zoneref;

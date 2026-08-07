@@ -1,0 +1,1 @@
+SELECT devregistry AS device_id, makername AS manufacturer, modnum AS model, ROUND(( battlifeh * battcapmah ) / ( pwractmw * 10.0 ), 2) AS ber FROM deviceidentity JOIN testsessions ON deviceidentity.devsessionref = testsessions.sessionregistry WHERE ( battlifeh * battcapmah ) / ( pwractmw * 10.0 ) > 7.5 ORDER BY ber DESC NULLS FIRST;
