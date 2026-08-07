@@ -2,9 +2,7 @@ infini_credential.json
 setup_failures.log
 logs/
 output/
-submission_sql/
-submission_reasoning/
-submission_output/
+# Legacy single-file submission (replaced by submission_output/)
 submission_output.jsonl
 submission_output.jsonl.bak
 *_simple_report.txt
