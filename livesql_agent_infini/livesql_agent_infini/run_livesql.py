@@ -34,9 +34,9 @@ from livesql_agent_infini.config import (
     INFINI_CREDENTIAL_PATH,
     OUTPUT_DIR,
     REFERENCES_DIR,
+    SUBMISSION_DIR_OUTPUT,
     SUBMISSION_DIR_REASONING,
     SUBMISSION_DIR_SQL,
-    SUBMISSION_JSONL,
     TASK_MAX_WAIT,
 )
 from livesql_agent_infini.kb_reference import write_kb_reference
@@ -208,6 +208,7 @@ def _clear_submissions(instance_id: str) -> None:
     for path in (
         SUBMISSION_DIR_SQL / f"{instance_id}.sql",
         SUBMISSION_DIR_REASONING / f"{instance_id}.json",
+        SUBMISSION_DIR_OUTPUT / f"{instance_id}.json",
     ):
         if path.exists():
             path.unlink()
@@ -284,27 +285,18 @@ def _extract_sql_from_file(sql_path: Path) -> list[str]:
     return _split_sql_statements(content)
 
 
-def _upsert_submission_jsonl(task: dict, pred_sqls: list[str]) -> None:
-    """Insert or replace one instance record in submission_output.jsonl."""
+def _write_submission_output(task: dict, pred_sqls: list[str]) -> Path:
+    """Write one evaluation record to submission_output/{instance_id}.json."""
     raw = dict(task["_raw"])
     raw["pred_sqls"] = pred_sqls
     instance_id = raw["instance_id"]
 
-    records: list[dict] = []
-    if SUBMISSION_JSONL.exists():
-        with open(SUBMISSION_JSONL, "r", encoding="utf-8") as handle:
-            for line in handle:
-                line = line.strip()
-                if not line:
-                    continue
-                record = json.loads(line)
-                if record.get("instance_id") != instance_id:
-                    records.append(record)
-    records.append(raw)
-
-    with open(SUBMISSION_JSONL, "w", encoding="utf-8") as handle:
-        for record in records:
-            handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+    SUBMISSION_DIR_OUTPUT.mkdir(parents=True, exist_ok=True)
+    dest = SUBMISSION_DIR_OUTPUT / f"{instance_id}.json"
+    with open(dest, "w", encoding="utf-8") as handle:
+        json.dump(raw, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+    return dest
 
 
 def run_one(
@@ -447,8 +439,8 @@ def run_one(
 
     pred_sqls = _extract_sql_from_file(dst)
     if pred_sqls:
-        _upsert_submission_jsonl(task, pred_sqls)
-        logger.info("[jsonl] %s: upserted pred_sqls in %s", instance_id, SUBMISSION_JSONL)
+        out_path = _write_submission_output(task, pred_sqls)
+        logger.info("[output] %s: saved -> %s", instance_id, out_path)
     return True
 
 
@@ -645,6 +637,7 @@ def main(argv: list[str] | None = None) -> int:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_SQL.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_REASONING.mkdir(parents=True, exist_ok=True)
+    SUBMISSION_DIR_OUTPUT.mkdir(parents=True, exist_ok=True)
 
     logger.info("Running %d Query task(s)", len(tasks))
     if len(engine_ids) == 1:
@@ -670,8 +663,7 @@ def main(argv: list[str] | None = None) -> int:
         )
 
     logger.info("All tasks finished: %d/%d succeeded", n_ok, len(tasks))
-    if SUBMISSION_JSONL.exists():
-        logger.info("Submission jsonl: %s", SUBMISSION_JSONL)
+    logger.info("Submission output dir: %s", SUBMISSION_DIR_OUTPUT)
     return 0 if n_ok == len(tasks) else 1
 
 

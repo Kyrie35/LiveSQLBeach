@@ -2,6 +2,7 @@
 import sys
 import json
 import re
+from pathlib import Path
 
 
 def load_jsonl(file_path):
@@ -14,6 +15,34 @@ def load_jsonl(file_path):
     except Exception as e:
         print(f"Failed to load JSONL file: {e}")
         sys.exit(1)
+
+
+def load_submission_dir(dir_path):
+    """
+    Load one-JSON-per-instance records from a directory.
+    Each file should be named {instance_id}.json and contain one object.
+    """
+    root = Path(dir_path)
+    if not root.is_dir():
+        print(f"Submission directory not found: {dir_path}")
+        sys.exit(1)
+
+    records = []
+    for path in sorted(root.glob("*.json")):
+        try:
+            with open(path, "r", encoding="utf-8") as handle:
+                data = json.load(handle)
+        except Exception as e:
+            print(f"Failed to load {path}: {e}")
+            sys.exit(1)
+        if not isinstance(data, dict):
+            print(f"Expected a JSON object in {path}")
+            sys.exit(1)
+        if "instance_id" not in data:
+            data["instance_id"] = path.stem
+        records.append(data)
+
+    return records
 
 
 def split_field(data, field_name):

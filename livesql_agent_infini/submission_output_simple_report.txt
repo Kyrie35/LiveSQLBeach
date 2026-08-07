@@ -1,25 +1,45 @@
 --------------------------------------------------
 BIRD CRITIC Stack Overflow Result Statistics (Postgres, Multi-Thread):
 Number of Instances: 7
-Number of Execution Errors: 7
+Number of Execution Errors: 0
 Number of Timeouts: 0
-Number of Assertion Errors: 0
-Total Errors: 7
-Overall Accuracy: 0.00%
-Timestamp: 2026-08-06 18:03:21.958620
+Number of Assertion Errors: 5
+Total Errors: 5
+Overall Accuracy: 28.57%
+Timestamp: 2026-08-07 14:22:41.145747
 
-Question_alien_1: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
-Question_alien_2: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
-Question_alien_3: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
-Question_alien_4: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
-Question_alien_5: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
-Question_alien_6: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
-Question_alien_7: (0/0) test cases passed, failed test cases: None | Eval Phase: Execution Error
+Question_alien_1: (1/0) test cases passed, failed test cases: None
+Question_alien_2: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_alien_3: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_alien_4: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_alien_5: (1/0) test cases passed, failed test cases: None
+Question_alien_6: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_alien_7: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
 
 ==================================================
 EXECUTION STATISTICS:
 ==================================================
-Total Executable Instances (no syntax/execution errors): 0
-Executable Instances with Assertion Errors: 0
-Executable Instances Successfully Passed: 0
+Total Executable Instances (no syntax/execution errors): 7
+Executable Instances with Assertion Errors: 5
+Executable Instances Successfully Passed: 2
+
+Executable Instance IDs:
+  1. alien_1 (Success)
+  2. alien_2 (Assertion Error)
+  3. alien_3 (Assertion Error)
+  4. alien_4 (Assertion Error)
+  5. alien_5 (Success)
+  6. alien_6 (Assertion Error)
+  7. alien_7 (Assertion Error)
+
+Executable Instances with Assertion Errors:
+  1. alien_2
+  2. alien_3
+  3. alien_4
+  4. alien_6
+  5. alien_7
+
+Executable Instances Successfully Passed:
+  1. alien_1
+  2. alien_5
 

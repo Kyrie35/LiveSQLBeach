@@ -109,7 +109,7 @@ python3 run_livesql.py \
 | `--engine <name>` | 指定 InfiniSQL 引擎 |
 | `--rerun` | 强制重跑并覆盖已有提交 |
 
-重跑单题时，`submission_output.jsonl` **只更新该题对应行**，不会删除其他题的记录。
+重跑单题时，会覆盖该题的 `submission_sql` / `submission_reasoning` / `submission_output` 三个文件，不影响其他题。
 
 ```bash
 python3 run_livesql.py --instance_id alien_1 --rerun --timeout 90
@@ -119,19 +119,21 @@ python3 run_livesql.py --instance_id alien_1 --rerun --timeout 90
 产物位置：
 
 ```text
-submission_sql/alien_1.sql          # Agent 产出的 SQL
-submission_reasoning/alien_1.json   # reasoning trace
-submission_output.jsonl             # 含 pred_sqls，供后续评测
-output/alien_1/                     # task workspace 压缩包
-references/alien_1_kb.md            # 按 external_knowledge 生成的参考文档
+submission_sql/alien_1.sql             # Agent 产出的 SQL
+submission_reasoning/alien_1.json      # reasoning trace
+submission_output/alien_1.json         # 含 pred_sqls 的完整评测记录（一题一文件）
+output/alien_1/                        # task workspace 压缩包
+references/alien_1_kb.md               # 按 external_knowledge 生成的参考文档
 ```
 
 跑完后本地评测（终端会列出 PASSED / FAILED 的 instance_id）：
 
 ```bash
-python3 ../live_sql_bench_sqlite/evaluation/wrapper_evaluation_sqlite.py \
-  --jsonl_file submission_output.jsonl \
-  --db_path ../livesqlbench-base-lite-sqlite \
+cd ../live_sql_bench_sqlite/evaluation
+
+python3 wrapper_evaluation_sqlite.py \
+  --submission_dir ../../livesql_agent_infini/submission_output \
+  --db_path ../../livesqlbench-base-lite-sqlite \
   --mode pred \
   --num_threads 1
 ```

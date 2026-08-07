@@ -4,6 +4,13 @@ logs/
 output/
 submission_sql/
 submission_reasoning/
+submission_output/
+submission_output.jsonl
+submission_output.jsonl.bak
+*_simple_report.txt
+*_simple_wrapper.log
+*_simple_output_with_status.jsonl
+*_instance_*.log
 __pycache__/
 *.egg-info/
 .venv/

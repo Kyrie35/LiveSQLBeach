@@ -14,12 +14,22 @@ import tempfile
 import time
 import gc
 import concurrent.futures
-import threading
 from datetime import datetime
+from pathlib import Path
 from tqdm import tqdm
 from logger import configure_logger
-from utils import load_jsonl, save_report_and_status
+from utils import load_jsonl, load_submission_dir, save_report_and_status
 from db_utils import create_ephemeral_db_copies, drop_ephemeral_dbs
+
+_EVAL_DIR = Path(__file__).resolve().parent
+_SINGLE_INSTANCE_SCRIPT = str(_EVAL_DIR / "single_instance_eval_sqlite.py")
+
+
+def _resolve_base_output_folder(args):
+    """Prefix used for report/log/status artifact names."""
+    if getattr(args, "submission_dir", None):
+        return str(Path(args.submission_dir).resolve())
+    return os.path.splitext(args.jsonl_file)[0]
 
 
 def run_single_instance(instance_data, instance_id, args, ephemeral_db_path, logger):
@@ -33,13 +43,13 @@ def run_single_instance(instance_data, instance_id, args, ephemeral_db_path, log
     # Create temporary output file
     tmp_output = tempfile.NamedTemporaryFile(suffix=".json", delete=False).name
 
-    base_output_folder = os.path.splitext(args.jsonl_file)[0]
+    base_output_folder = _resolve_base_output_folder(args)
     log_file_path = f"{base_output_folder}_instance_{instance_id}.log"
 
     # Build command to run single instance evaluation script
     cmd = [
         "python3",
-        "./single_instance_eval_sqlite.py",
+        _SINGLE_INSTANCE_SCRIPT,
         "--jsonl_file",
         tmp_input,
         "--output_file",
@@ -49,7 +59,7 @@ def run_single_instance(instance_data, instance_id, args, ephemeral_db_path, log
         "--logging",
         "false",
         "--log_file",
-        log_file_path,  # 添加这一行指定日志文件路径
+        log_file_path,
     ]
 
     # Set up environment with ephemeral database path
@@ -124,7 +134,7 @@ def process_instances_batch(instances_batch, ephemeral_db_paths, args, logger):
     
     for i, (instance_data, instance_id) in enumerate(instances_batch):
         # Use round-robin assignment of ephemeral databases
-        db_name = instance_data.get("selected_database", "unknown")
+        db_name = instance_data.get("selected_database") or "unknown"
         if db_name in ephemeral_db_paths and ephemeral_db_paths[db_name]:
             ephemeral_db_path = ephemeral_db_paths[db_name][i % len(ephemeral_db_paths[db_name])]
         else:
@@ -156,7 +166,16 @@ def main():
     parser = argparse.ArgumentParser(
         description="Simplified wrapper script for SQLite evaluation"
     )
-    parser.add_argument("--jsonl_file", required=True, help="Path to JSONL file")
+    parser.add_argument(
+        "--submission_dir",
+        default=None,
+        help="Directory of per-instance JSON files (e.g. submission_output/)",
+    )
+    parser.add_argument(
+        "--jsonl_file",
+        default=None,
+        help="Legacy: path to a single JSONL file (alternative to --submission_dir)",
+    )
     parser.add_argument("--db_path", required=True, help="Path to database folder")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of instances")
     parser.add_argument("--skip", type=int, default=0, help="Skip first N instances")
@@ -167,12 +186,22 @@ def main():
 
     args = parser.parse_args()
 
+    if bool(args.submission_dir) == bool(args.jsonl_file):
+        print("Specify exactly one of --submission_dir or --jsonl_file")
+        sys.exit(1)
+
     # Load and process data
-    print(f"Loading data from {args.jsonl_file}...")
-    data_list = load_jsonl(args.jsonl_file)
+    if args.submission_dir:
+        print(f"Loading data from directory {args.submission_dir}...")
+        data_list = load_submission_dir(args.submission_dir)
+        source_label = args.submission_dir
+    else:
+        print(f"Loading data from {args.jsonl_file}...")
+        data_list = load_jsonl(args.jsonl_file)
+        source_label = args.jsonl_file
 
     if not data_list:
-        print("No data found in JSONL file.")
+        print(f"No data found in {source_label}.")
         sys.exit(1)
 
     original_count = len(data_list)
@@ -190,16 +219,17 @@ def main():
     final_count = len(data_list)
     print(f"Processing {final_count} instances")
 
-    # Collect unique database names
+    # Collect unique database names (ignore null/empty)
     all_db_names = set()
     for d in data_list:
-        if "selected_database" in d:
-            all_db_names.add(d["selected_database"])
+        db_name = d.get("selected_database")
+        if db_name:
+            all_db_names.add(db_name)
 
     print(f"Found {len(all_db_names)} unique databases: {sorted(all_db_names)}")
 
     # Setup logging
-    base_output_folder = os.path.splitext(args.jsonl_file)[0]
+    base_output_folder = _resolve_base_output_folder(args)
     log_filename = f"{base_output_folder}_simple_wrapper.log"
     logger = configure_logger(log_filename)
 
@@ -330,19 +360,19 @@ def main():
 
     print("\nPASSED instance_ids:")
     if passed_ids:
-        for instance_id in passed_ids:
-            print(f"  ✓ {instance_id}")
+        for i, instance_id in enumerate(passed_ids, 1):
+            print(f"  {i}. {instance_id}")
     else:
         print("  (none)")
 
     print("\nFAILED instance_ids:")
     if failed_ids:
-        for instance_id in failed_ids:
+        for i, instance_id in enumerate(failed_ids, 1):
             detail = failed_details.get(instance_id, "")
             if detail:
-                print(f"  ✗ {instance_id}  ({detail})")
+                print(f"  {i}. {instance_id}  ({detail})")
             else:
-                print(f"  ✗ {instance_id}")
+                print(f"  {i}. {instance_id}")
     else:
         print("  (none)")
     print("="*60)
@@ -362,15 +392,18 @@ def main():
         print(f"Error saving report: {e}")
         logger.error(f"Error saving report: {e}")
 
-    # Save output with status
+    # Save output with status (merge by instance_id, not list index)
     output_jsonl_file = f"{base_output_folder}_simple_output_with_status.jsonl"
     try:
+        results_by_id = {r["instance_id"]: r for r in all_results}
         with open(output_jsonl_file, "w") as f:
-            for i, data in enumerate(data_list):
-                if i < len(all_results):
-                    data["status"] = all_results[i]["status"]
-                    data["error_message"] = all_results[i].get("error_message")
-                f.write(json.dumps(data) + "\n")
+            for data in data_list:
+                instance_id = data.get("instance_id")
+                result = results_by_id.get(instance_id)
+                if result is not None:
+                    data["status"] = result["status"]
+                    data["error_message"] = result.get("error_message")
+                f.write(json.dumps(data, ensure_ascii=False) + "\n")
         print(f"Output saved: {output_jsonl_file}")
     except Exception as e:
         print(f"Error saving output: {e}")

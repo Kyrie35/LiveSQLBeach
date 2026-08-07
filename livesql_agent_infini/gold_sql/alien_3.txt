@@ -1,0 +1,1 @@
+SELECT o.ObservStation, o.LunarStage, AVG(( 1 - o.LunarDistDeg / 180 ) * ( 1 - o.AtmosTransparency )) AS avg_lif, COUNT(*) FILTER(WHERE ( 1 - o.LunarDistDeg / 180 ) * ( 1 - o.AtmosTransparency ) > 0.5) AS high_interf_count FROM Observatories AS o GROUP BY o.ObservStation, o.LunarStage ORDER BY avg_lif DESC NULLS FIRST;
