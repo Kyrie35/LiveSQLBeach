@@ -1,12 +1,12 @@
 --------------------------------------------------
 BIRD CRITIC Stack Overflow Result Statistics (Postgres, Multi-Thread):
-Number of Instances: 10
+Number of Instances: 11
 Number of Execution Errors: 0
 Number of Timeouts: 0
 Number of Assertion Errors: 2
 Total Errors: 2
-Overall Accuracy: 80.00%
-Timestamp: 2026-08-11 14:50:21.844565
+Overall Accuracy: 81.82%
+Timestamp: 2026-08-11 14:56:45.214019
 
 Question_alien_1: (1/0) test cases passed, failed test cases: None
 Question_alien_2: (1/0) test cases passed, failed test cases: None
@@ -18,13 +18,14 @@ Question_alien_7: (1/0) test cases passed, failed test cases: None
 Question_alien_8: (1/0) test cases passed, failed test cases: None
 Question_archeology_1: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
 Question_archeology_2: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_archeology_3: (1/0) test cases passed, failed test cases: None
 
 ==================================================
 EXECUTION STATISTICS:
 ==================================================
-Total Executable Instances (no syntax/execution errors): 10
+Total Executable Instances (no syntax/execution errors): 11
 Executable Instances with Assertion Errors: 2
-Executable Instances Successfully Passed: 8
+Executable Instances Successfully Passed: 9
 
 Executable Instance IDs:
   1. alien_1 (Success)
@@ -37,6 +38,7 @@ Executable Instance IDs:
   8. alien_8 (Success)
   9. archeology_1 (Assertion Error)
   10. archeology_2 (Assertion Error)
+  11. archeology_3 (Success)
 
 Executable Instances with Assertion Errors:
   1. archeology_1
@@ -51,4 +53,5 @@ Executable Instances Successfully Passed:
   6. alien_6
   7. alien_7
   8. alien_8
+  9. archeology_3
 
