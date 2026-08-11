@@ -1,12 +1,12 @@
 --------------------------------------------------
 BIRD CRITIC Stack Overflow Result Statistics (Postgres, Multi-Thread):
-Number of Instances: 8
+Number of Instances: 10
 Number of Execution Errors: 0
 Number of Timeouts: 0
 Number of Assertion Errors: 2
 Total Errors: 2
-Overall Accuracy: 75.00%
-Timestamp: 2026-08-10 15:37:33.376167
+Overall Accuracy: 80.00%
+Timestamp: 2026-08-11 14:50:21.844565
 
 Question_alien_1: (1/0) test cases passed, failed test cases: None
 Question_alien_2: (1/0) test cases passed, failed test cases: None
@@ -14,15 +14,17 @@ Question_alien_3: (1/0) test cases passed, failed test cases: None
 Question_alien_4: (1/0) test cases passed, failed test cases: None
 Question_alien_5: (1/0) test cases passed, failed test cases: None
 Question_alien_6: (1/0) test cases passed, failed test cases: None
-Question_alien_7: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
-Question_alien_8: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_alien_7: (1/0) test cases passed, failed test cases: None
+Question_alien_8: (1/0) test cases passed, failed test cases: None
+Question_archeology_1: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
+Question_archeology_2: (0/0) test cases passed, failed test cases: None | Eval Phase: Assertion Error
 
 ==================================================
 EXECUTION STATISTICS:
 ==================================================
-Total Executable Instances (no syntax/execution errors): 8
+Total Executable Instances (no syntax/execution errors): 10
 Executable Instances with Assertion Errors: 2
-Executable Instances Successfully Passed: 6
+Executable Instances Successfully Passed: 8
 
 Executable Instance IDs:
   1. alien_1 (Success)
@@ -31,12 +33,14 @@ Executable Instance IDs:
   4. alien_4 (Success)
   5. alien_5 (Success)
   6. alien_6 (Success)
-  7. alien_7 (Assertion Error)
-  8. alien_8 (Assertion Error)
+  7. alien_7 (Success)
+  8. alien_8 (Success)
+  9. archeology_1 (Assertion Error)
+  10. archeology_2 (Assertion Error)
 
 Executable Instances with Assertion Errors:
-  1. alien_7
-  2. alien_8
+  1. archeology_1
+  2. archeology_2
 
 Executable Instances Successfully Passed:
   1. alien_1
@@ -45,4 +49,6 @@ Executable Instances Successfully Passed:
   4. alien_4
   5. alien_5
   6. alien_6
+  7. alien_7
+  8. alien_8
 
